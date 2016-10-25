@@ -154,15 +154,23 @@ namespace Tzb
 
         private void identity_pic_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(" 识别结果" + identity3(textBox_Path.Text).ToString(), " 识别结果 ");
-            
-            if(identity3(textBox_Path.Text).ToString()=="1")
+            if (textBox_Path.Text.ToString()!="") 
             {
-                identity_result.Text = "有";
+                MessageBox.Show(" 识别结果" + identity3(textBox_Path.Text).ToString(), " 识别结果 ");
+
+                if (identity3(textBox_Path.Text).ToString() == "1")
+                {
+                    identity_result.Text = "有";
+                }
+                else if (identity3(textBox_Path.Text).ToString() == "0")
+                {
+                    identity_result.Text = "无";
+                }
             }
-            else if (identity3(textBox_Path.Text).ToString() == "0")
+            else if (textBox_Path.Text.ToString() == "")
             {
-                identity_result.Text = "无";
+                MessageBox.Show("没有选定图片", " 识别结果 ");
+
             }
                 
         }
